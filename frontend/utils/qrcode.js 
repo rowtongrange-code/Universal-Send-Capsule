@@ -1,0 +1,6 @@
+import QRCode from 'qrcode';
+export async function generateQRCode(data) {
+  const canvas = document.getElementById('qrcode');
+  canvas.innerHTML = '';
+  await QRCode.toCanvas(canvas, data);
+}
