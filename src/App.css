@@ -1,0 +1,169 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #f0f4f8;
+  color: #1a202c;
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+header h1 {
+  font-size: 2rem;
+  color: #2b6cb0;
+  margin-bottom: 8px;
+}
+
+header p {
+  color: #718096;
+  font-size: 1rem;
+}
+
+nav {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+nav button {
+  background: #2b6cb0;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+nav button:hover {
+  background: #2c5282;
+}
+
+.home {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.home h2 {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+
+.home p {
+  color: #718096;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.home button {
+  margin-top: 24px;
+  background: #2b6cb0;
+  color: white;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+  color: #2d3748;
+}
+
+.card p {
+  color: #718096;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+input[type="file"] {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+}
+
+button {
+  background: #2b6cb0;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+button:hover {
+  background: #2c5282;
+}
+
+button:disabled {
+  background: #a0aec0;
+  cursor: not-allowed;
+}
+
+.result {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.result p {
+  margin-bottom: 12px;
+}
+
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: #4a5568;
+  resize: none;
+  margin-bottom: 8px;
+  word-break: break-all;
+}
+
+.file-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: #f7fafc;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.file-item span {
+  font-size: 0.95rem;
+  color: #2d3748;
+}
+
+.error {
+  color: #e53e3e;
+  font-weight: 500;
+}
