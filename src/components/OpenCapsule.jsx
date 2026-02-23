@@ -7,20 +7,27 @@ export default function OpenCapsule() {
   const [error, setError] = useState('')
 
   useEffect(() => {
-    const hash = window.location.hash.slice(1)
-    if (hash) openFromHash(hash)
+    const params = new URLSearchParams(window.location.search)
+    const url = params.get('url')
+    const keyHex = window.location.hash.slice(1)
+
+    if (url && keyHex) {
+      openCapsule(url, keyHex)
+    }
   }, [])
 
-  async function openFromHash(hash) {
+  async function openCapsule(url, keyHex) {
     try {
       setStatus('Opening your capsule...')
       await sodium.ready
 
-      const [keyHex, b64] = hash.split(':')
-      if (!keyHex || !b64) throw new Error('Invalid capsule link')
-
       const key = sodium.from_hex(keyHex)
-      const combined = Uint8Array.from(atob(b64), c => c.charCodeAt(0))
+
+      const response = await fetch(url)
+      if (!response.ok) throw new Error('Could not fetch capsule')
+
+      const buffer = await response.arrayBuffer()
+      const combined = new Uint8Array(buffer)
 
       const nonce = combined.slice(0, sodium.crypto_secretbox_NONCEBYTES)
       const encrypted = combined.slice(sodium.crypto_secretbox_NONCEBYTES)
@@ -51,7 +58,7 @@ export default function OpenCapsule() {
     <div className="card">
       <h2>Open a Capsule</h2>
 
-      {!window.location.hash && (
+      {!window.location.search && (
         <p>Paste a capsule link in your browser address bar to open it.</p>
       )}
 
@@ -71,4 +78,4 @@ export default function OpenCapsule() {
       )}
     </div>
   )
-}``
+}
